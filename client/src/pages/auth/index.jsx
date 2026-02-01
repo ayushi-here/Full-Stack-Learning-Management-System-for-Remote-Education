@@ -8,6 +8,8 @@ import {
   TabsTrigger,
   TabsContent,
 } from "@/components/ui/tabs";
+import CommonForm from "@/components/common-form";
+import { signUpFormControls, signInFormControls } from "@/config";
 
 function AuthPage() {
   const [activeTab, setActiveTab] = useState("signin");
@@ -35,11 +37,15 @@ function AuthPage() {
           </TabsList>
 
           <TabsContent value="signin" className="mt-6">
-            Sign In Form
+           <CommonForm
+            formControls={signInFormControls}
+            />
           </TabsContent>
 
           <TabsContent value="signup" className="mt-6">
-            Sign Up Form
+             <CommonForm
+            formControls={signUpFormControls}
+            />
           </TabsContent>
         </Tabs>
       </div>
