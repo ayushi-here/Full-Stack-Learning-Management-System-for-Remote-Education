@@ -20,6 +20,7 @@ function AuthPage() {
     setSignInFormData,
     signUpFormData,
     setSignUpFormData,
+    handleRegisterUser
   } = useContext(AuthContext);
 
   function handleTabchange(value) {
@@ -27,11 +28,20 @@ function AuthPage() {
   }
 
   function checkIfSignInFormIsValid() {
-    return signInFormData && signInFormData.userEmail !== '' && signInFormData.password !== '';
+    return (
+      signInFormData &&
+      signInFormData.userEmail !== "" &&
+      signInFormData.password !== ""
+    );
   }
 
   function checkIfSignUpFormIsValid() {
-    return signUpFormData && signUpFormData.userName !== '' && signUpFormData.userEmail !== '' && signUpFormData.password !== '';
+    return (
+      signUpFormData &&
+      signUpFormData.userName !== "" &&
+      signUpFormData.userEmail !== "" &&
+      signUpFormData.password !== ""
+    );
   }
 
   console.log("SignIn Data:", signInFormData);
@@ -94,6 +104,7 @@ function AuthPage() {
                   formData={signUpFormData}
                   setFormData={setSignUpFormData}
                   isButtonDisabled={!checkIfSignUpFormIsValid()}
+                  handleSubmit={handleRegisterUser}
                 />
               </CardContent>
             </Card>
